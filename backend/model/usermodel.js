@@ -5,64 +5,89 @@ const jwt = require("jsonwebtoken");
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: [true, "Please Enter Your Name"],
+        required: [true, "Please enter your name"],
+        
     },
+
     email: {
         type: String,
-        required: [true, "Please Enter Your Email"],
+        required: [true, "Please enter your email"],
+        
     },
     password: {
         type: String,
-        required: [true, "Please Enter Your Password"],
-        minLength: [4, "Password should be greater than 4 characters"],
+        required: [true, "Please enter your password"],
+        minlength: [4, "Password should be greater than 4 characters"],
         select: false,
     },
-    phoneNumber:{
+    phoneNumber: {
         type: Number,
+    
     },
     addresses: [
         {
-            country:{type: String,},
-            city:{type: String,},
-            address1:{type: String,},
-            address2:{type: String,},
-            zipCode:{type: Number,},
-            addressTYPE:{type: String,},
+            country:{
+                type: String,
+                
+            },
+            city:{
+                type: String,
+                
+            },
+            address1:{
+                type: String,
+                
+            },
+            address2:{
+                type: String,
+                
+            },
+            zipCode:{
+                type: Number,
+                
+            },
+            adressTYPE:{
+                type: String,
+                
+            },
+
         }
     ],
-    role: {
-        type: String,
-        default: "user",
+    role:{
+        type:String,
     },
-    avatar: {
-        public_id: {
+    avatar:{
+        public_id:{
             type: String,
             required: true,
+            
         },
-        url: {
+        url:{
             type: String,
             required: true,
+            
         },
     },
-    createdAt: {
-        type:DataTransfer,
+    creareAt:{
+        type: Date,
         default: Date.now(),
     },
     resetPasswordToken: String,
-    resetPasswordExpire: Date,
+    resetPasswordTime: Date,
 
-}) 
+});
 
 userSchema.pre("save", async function(next){
     if(!this.isModified("password")){
         next();
     }
     this.password = await bcrypt.hash(this.password, 10);
+    next();
 });
 
-userSchema.methods.getJWTToken = function(){
-    return jwt.sign({id: this._id}, process.env.JWT_SECRET_KEY, {
-        expiresIn: process.env.JWT_EXPIRE,
+userSchema.methods.getJwtToken = function(){
+    return jwt.sign({id: this._id}, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRES_TIME,
     });
 };
 

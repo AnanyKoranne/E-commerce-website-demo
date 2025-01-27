@@ -1,23 +1,18 @@
-const mongoose = require('mongoose');
-
-const connectDatabase = () => {
-    if (!process.env.MONGODB_URI) {
-        console.error("MONGODB_URI is not defined in the environment variables.");
-        process.exit(1);
-    }
-
-    mongoose
-        .connect(process.env.MONGODB_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        })
-        .then((data) => {
-            console.log(`Database connected successfully: ${data.connection.host}`);
-        })
-        .catch((err) => {
-            console.error("Database connection failed:", err.message);
-            process.exit(1);
-        });
+if(process.env.NODE_ENV !=="PRODUCTION"){
+    require('dotenv').config({
+        path: './config/.env',
+    });
 };
 
-module.exports = connectDatabase;
+const mongoose = require('mongoose');
+
+const connectDB = () => {
+    mongoose
+    .connect(process.env.DB_URL)
+    .then((data) => {
+        console.log(`Database connected successfully: ${data.connection.host}`);
+    })
+    .catch((err) => console.log('Database connection failed...', err.message));
+}
+
+module.exports = connectDB;
