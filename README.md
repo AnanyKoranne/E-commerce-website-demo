@@ -274,3 +274,38 @@ This lesson emphasized the foundation of creating and submitting product data. F
 - **Frontend**: HTML, CSS, JavaScript
 - **Additional Features**: File input handling for multiple images.
 
+---
+
+## Milestone 10: Mongoose Schema & Product Endpoint 🚀
+
+### Overview 📌
+This milestone focuses on setting up a Mongoose schema for products and creating a backend endpoint to store product details in MongoDB.
+
+### Key Features 🎯
+1. **Product Schema**
+   - Defines the structure of product data (e.g., name, description, price, image URL).
+   - Ensures proper validation (e.g., required fields, correct data types).
+
+2. **Endpoint Creation**
+   - Built a `POST` endpoint to receive product data.
+   - Validates and saves product details to MongoDB.
+
+3. **Why Validation?**
+   - Ensures that only valid data is saved in the database.
+   - Maintains data integrity and prevents errors.
+
+### Additional Enhancements ✨
+- Implement an admin access control system to allow only authorized users to upload products.
+- Introduce shop profiles, where only shop owners can add products.
+
+### Technologies Used 🛠
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB, Mongoose
+- **Validation**: Mongoose schema validation
+
+---
+
+
+
+
+
