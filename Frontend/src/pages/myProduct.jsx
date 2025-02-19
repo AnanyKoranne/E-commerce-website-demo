@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import Product from '../components/Products';
+import MyProduct from '../components/myProducts';
 
-export default function Home() {
+export default function MyProducts() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const email = "coco@gmail.com"; 
     useEffect(() => {
-        fetch('http://localhost:8000/api/v2/product/get-products')
+        fetch(`http://localhost:8000/api/v2/product/my-products?email=${email}`)
             .then((res) => {
                 if (!res.ok) {
                     throw new Error(`Network response was not ok: ${res.status}`);
@@ -39,7 +39,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {products.length > 0 ? (
                     products.map((product) => (
-                        <Product key={product._id || product.id} {...product} />
+                        <MyProduct key={product._id || product.id} {...product} />
                     ))
                 ) : (
                     !loading && !error && (
