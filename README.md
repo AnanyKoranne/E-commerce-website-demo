@@ -682,3 +682,12 @@ By completing this milestone, you will:
 
 ### **Completion Note:**
 The order confirmation page has been successfully implemented, providing users with a clear overview of their order details before placing it.
+
+### **Steps for Milestone 26**
+1. need to create an endpoint that will receive the user mail
+2. will get the mail of the user using that need to retrive the _id of the user
+3. Using that _id need to get all the orders of that user
+4. Sending all the users orders in the response.
+
+### **Completion Note:**
+The order confirmation page has been successfully implemented, providing users with a clear overview of their order details before placing it.
