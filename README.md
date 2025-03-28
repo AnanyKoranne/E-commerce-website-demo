@@ -683,11 +683,31 @@ By completing this milestone, you will:
 ### **Completion Note:**
 The order confirmation page has been successfully implemented, providing users with a clear overview of their order details before placing it.
 
-### **Steps for Milestone 26**
+## **Steps for Milestone 26**
 1. need to create an endpoint that will receive the user mail
 2. will get the mail of the user using that need to retrive the _id of the user
 3. Using that _id need to get all the orders of that user
 4. Sending all the users orders in the response.
+   
+## **Completion Note:**
+The order confirmation page has been successfully implemented, providing users with a clear overview of their order details before placing it.
 
-### **Completion Note:**
+## **Steps for Milestone 27**
+1. need to create an my-orders page
+2.  will send an get request to my-orders endpoint that were created in 3.previous milestone.
+3.  will send user mail in to endpoint to get all the user orders
+4. Display all the user orders
+5.  add my-orders page in navbar for better navigation.
+
+
+## **Steps for Milestone 28**
+
+1. In my-orders page for every order add cancel order button
+2. If the order is already canceled this button should not be displayed
+3. You need to create an endpoint that will receive the order-id
+4. Get the order using this id and mark the status canceled and save
+
+
+
+## **Completion Note:**
 The order confirmation page has been successfully implemented, providing users with a clear overview of their order details before placing it.
